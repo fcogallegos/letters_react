@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const Form = () => {
+const Form = ({saveSearchLetter}) => {
 
     //state search
     const [search, saveSearch ] = useState({
@@ -34,11 +34,12 @@ const Form = () => {
         saveError(false);
 
         //if all fine, pass to main component
-        
+        saveSearchLetter(search);
     }
 
     return ( 
         <div className="bg-info">
+                                { error ? <p className="alert alert-danger text-center p-2">All fields are required</p> : null }
             <div className="container">
                 <div className="row">
                     <form 
